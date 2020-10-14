@@ -3,6 +3,7 @@ Carry out the following steps to configure the project. You should do this befor
 Open the Terminal from the View menu
 
 ```shell
+$ chmod +x ./setup.sh
 $ ./setup.sh
 ```
 

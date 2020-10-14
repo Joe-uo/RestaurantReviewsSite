@@ -13,6 +13,8 @@ nvm use default
 npm install
 npm audit fix
 
+chmod +x .githooks/*
+
 npm test
 npm run linter
 clear
