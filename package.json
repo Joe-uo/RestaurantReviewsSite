@@ -14,8 +14,6 @@
 		]
 	},
 	"scripts": {
-		"packagedeps": "./node_modules/.bin/depcheck .",
-		"dependency": "./node_modules/.bin/dependency-check -i bcrypt --unused --no-dev . && node_modules/.bin/dependency-check --missing .",
 		"start": "node index.js",
 		"jsdoc": "node_modules/.bin/jsdoc -c jsdoc.conf",
 		"linter": "node_modules/.bin/eslint .",
@@ -37,11 +35,11 @@
 		"sqlite-async": "^1.1.0"
 	},
 	"devDependencies": {
-		"ava": "^3.12.1",
+		"ava": "^3.13.0",
 		"depcheck": "^1.2.0",
 		"dependency": "0.0.1",
 		"dependency-check": "^4.1.0",
-		"eslint": "^7.9.0",
+		"eslint": "^7.10.0",
 		"esm": "^3.2.25",
 		"jscpd": "^3.3.19",
 		"jsdoc": "^3.6.5",

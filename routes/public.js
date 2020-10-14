@@ -2,10 +2,10 @@
 import Router from 'koa-router'
 import bodyParser from 'koa-body'
 
-const publicRouter = new Router()
-publicRouter.use(bodyParser({multipart: true}))
+const router = new Router()
+router.use(bodyParser({multipart: true}))
 
-import { Accounts } from '../modules/accounts.js'
+import Accounts from '../modules/accounts.js'
 const dbName = 'website.db'
 
 /**
@@ -14,7 +14,7 @@ const dbName = 'website.db'
  * @name Home Page
  * @route {GET} /
  */
-publicRouter.get('/', async ctx => {
+router.get('/', async ctx => {
 	try {
 		await ctx.render('index', ctx.hbs)
 	} catch(err) {
@@ -29,7 +29,7 @@ publicRouter.get('/', async ctx => {
  * @name Register Page
  * @route {GET} /register
  */
-publicRouter.get('/register', async ctx => await ctx.render('register'))
+router.get('/register', async ctx => await ctx.render('register'))
 
 /**
  * The script to process new user registrations.
@@ -37,7 +37,7 @@ publicRouter.get('/register', async ctx => await ctx.render('register'))
  * @name Register Script
  * @route {POST} /register
  */
-publicRouter.post('/register', async ctx => {
+router.post('/register', async ctx => {
 	const account = await new Accounts(dbName)
 	try {
 		// call the functions in the module
@@ -53,9 +53,9 @@ publicRouter.post('/register', async ctx => {
 	}
 })
 
-publicRouter.get('/postregister', async ctx => await ctx.render('validate'))
+router.get('/postregister', async ctx => await ctx.render('validate'))
 
-publicRouter.get('/validate/:user/:token', async ctx => {
+router.get('/validate/:user/:token', async ctx => {
 	try {
 		console.log('VALIDATE')
 		console.log(`URL --> ${ctx.request.url}`)
@@ -73,12 +73,12 @@ publicRouter.get('/validate/:user/:token', async ctx => {
 	}
 })
 
-publicRouter.get('/login', async ctx => {
+router.get('/login', async ctx => {
 	console.log(ctx.hbs)
 	await ctx.render('login', ctx.hbs)
 })
 
-publicRouter.post('/login', async ctx => {
+router.post('/login', async ctx => {
 	const account = await new Accounts(dbName)
 	ctx.hbs.body = ctx.request.body
 	try {
@@ -95,9 +95,9 @@ publicRouter.post('/login', async ctx => {
 	}
 })
 
-publicRouter.get('/logout', async ctx => {
+router.get('/logout', async ctx => {
 	ctx.session.authorised = null
 	ctx.redirect('/?msg=you are now logged out')
 })
 
-export { publicRouter }
+export default router

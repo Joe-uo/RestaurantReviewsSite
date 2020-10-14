@@ -2,15 +2,9 @@
  "name": "Dynamic Website Template",
  "children": [
   {
-   "title": "Page 1",
+   "title": "Project Setup",
    "id": "b029f7ef-8fd7-3e3b-66e4-d5eaacea2193",
    "pageId": "b029f7ef-8fd7-3e3b-66e4-d5eaacea2193",
-   "type": "page"
-  },
-  {
-   "title": "Page 2",
-   "id": "7a43b575-382f-4351-97bf-882918a95bbe",
-   "pageId": "7a43b575-382f-4351-97bf-882918a95bbe",
    "type": "page"
   }
  ]
