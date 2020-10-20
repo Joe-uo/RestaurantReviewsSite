@@ -5,9 +5,16 @@ body {
 	}
 
 /* formats the red message boxes */
+aside {
+	max-width: 400px;
+	margin: auto;
+}
 .msg {
+	position: fixed;
+	top: 2em;
 	border: 1px solid red;
 	font-weight: bold;
+	background-color: white;
 	color: red;
 	padding: 1em;
 	margin: 2em;

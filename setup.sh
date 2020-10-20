@@ -25,7 +25,7 @@ echo
 echo "========= INSTALLING NODE USING ${green}NODESOURCE${reset} ========="
 echo
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt-get install -y nodejs
+sudo apt install -y nodejs
 echo
 echo "=========== INSTALLING THE ${green}NODE PACKAGES${reset} ==========="
 echo
