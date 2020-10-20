@@ -53,26 +53,6 @@ router.post('/register', async ctx => {
 	}
 })
 
-router.get('/postregister', async ctx => await ctx.render('validate'))
-
-router.get('/validate/:user/:token', async ctx => {
-	try {
-		console.log('VALIDATE')
-		console.log(`URL --> ${ctx.request.url}`)
-		if(!ctx.request.url.includes('.css')) {
-			console.log(ctx.params)
-			const milliseconds = 1000
-			const now = Math.floor(Date.now() / milliseconds)
-			const account = await new Accounts(dbName)
-			await account.checkToken(ctx.params.user, ctx.params.token, now)
-			ctx.hbs.msg = `account "${ctx.params.user}" has been validated`
-			await ctx.render('login', ctx.hbs)
-		}
-	} catch(err) {
-		await ctx.render('login', ctx.hbs)
-	}
-})
-
 router.get('/login', async ctx => {
 	console.log(ctx.hbs)
 	await ctx.render('login', ctx.hbs)
