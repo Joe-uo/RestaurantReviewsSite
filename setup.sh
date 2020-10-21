@@ -18,6 +18,8 @@ chmod +x .githooks/*
 rm -rf *.db  # delete any old database files
 rm -rf package-lock.json
 rm. -rf .settings
+rm -rf .sqlite_history
+rm -rf .bash_history
 echo
 echo "============= INSTALLING ${green}DEBIAN${reset} TOOLS =============="
 echo
