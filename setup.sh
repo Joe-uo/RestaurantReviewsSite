@@ -15,12 +15,15 @@ then
     cd files
 fi
 chmod +x .githooks/*
+rm -rf *.db  # delete any old database files
+rm -rf package-lock.json
+rm. -rf .settings
 echo
 echo "============= INSTALLING ${green}DEBIAN${reset} TOOLS =============="
 echo
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install -y psmisc lsof tree sqlite3 sqlite3-doc build-essential
+sudo apt install -y psmisc lsof tree sqlite3 sqlite3-doc build-essential gcc g++ make
 echo
 echo "========= INSTALLING NODE USING ${green}NODESOURCE${reset} ========="
 echo
@@ -30,6 +33,7 @@ echo
 echo "=========== INSTALLING THE ${green}NODE PACKAGES${reset} ==========="
 echo
 npm install
+npm install --save-dev eslint ava # we WILL ensure these are installed!
 npm audit fix
 echo
 echo "============== RUNNING THE ${green}UNIT TESTS${reset} =============="

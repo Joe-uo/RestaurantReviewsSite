@@ -1,6 +1,6 @@
 
 /* main.js */
 
-window.addEventListener('DOMContentLoaded', event => {
+window.addEventListener('DOMContentLoaded', () => {
 	console.log('DOMContentLoaded')
 })
