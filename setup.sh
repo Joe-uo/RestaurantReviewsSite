@@ -14,6 +14,7 @@ then
     cd files
 fi
 chmod +x .githooks/*
+git remote rm origin
 echo
 echo "============= DELETING ${green}TEMPORARY FILES${reset} =============="
 rm -rf *.db  # delete any old database files
@@ -21,6 +22,7 @@ rm -rf package-lock.json
 rm -rf .settings
 rm -rf .sqlite_history
 rm -rf .bash_history
+$ rm -rf .git # delete the repository we have cloned (if any)
 echo
 echo "============= INSTALLING ${green}DEBIAN${reset} TOOLS =============="
 sudo apt update -y
