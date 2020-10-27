@@ -50,7 +50,7 @@ router.post('/register', async ctx => {
 		console.log(ctx.hbs)
 		await ctx.render('register', ctx.hbs)
 	} finally {
-		account.close()
+		await account.close()
 	}
 })
 
@@ -73,7 +73,7 @@ router.post('/login', async ctx => {
 		ctx.hbs.msg = err.message
 		await ctx.render('login', ctx.hbs)
 	} finally {
-		account.close()
+		await account.close()
 	}
 })
 
