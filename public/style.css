@@ -6,18 +6,19 @@ body {
 
 /* formats the red message boxes */
 aside {
-	max-width: 400px;
+	max-width: 500px;
 	margin: auto;
+	background-color: yellow;
 }
 .msg {
-	position: fixed;
-	top: 2em;
 	border: 1px solid red;
 	font-weight: bold;
 	background-color: white;
 	color: red;
 	padding: 1em;
 	margin: 2em;
+	position: fixed;
+	top: 2em;
 }
 
 header {
@@ -71,9 +72,12 @@ p, legend {
 }
 
 main {
-	width: 100%;
-	margin-left: 3vw;
-	/* background-color: pink; */
+	max-width: 800px;
+	margin: auto;
+	margin-top: 2em;
+	padding: 2em;
+	box-sizing: border-box;
+	background-color: lightgray;
 }
 
 article {
@@ -142,11 +146,19 @@ legend {
 	padding: 0.6vw;
 }
 
-input[type="file"] {
-	display: none;
+input, textarea {
+	box-sizing: border-box;
 }
 
-input[type="submit"], header > a, .custom-file-upload {
+input:focus {
+	outline:none;
+}
+
+/* input[type="file"] {
+	display: none;
+} */
+
+input[type="submit"], .button, header > a, body > a, .custom-file-upload {
   background-color: grey;
   border: 2px solid grey;
   color: white;
@@ -158,12 +170,12 @@ input[type="submit"], header > a, .custom-file-upload {
 	/* border-radius: 0.6vw; */
 }
 
-input[type="submit"]:hover, header > a:hover, .custom-file-upload:hover {
+input[type="submit"]:hover, header > a:hover, .custom-file-upload:hover, .add:hover {
   color: grey;
   background-color: white;
 }
 
-input[type="text"], input[type="email"], input[type="password"], textarea, select {
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], textarea, select {
 	font-size: 1.5vw;
 	width: 25vw;
 	border: 1px solid #CCC;
@@ -177,6 +189,18 @@ textarea {
 	resize: none;
 }
 
+input:required, textarea:required {
+	border-width: 2px;
+}
+
+input:invalid, textarea:invalid {
+	border-color: red;
+}
+input:valid, textarea:valid {
+	border-color: darkgreen;
+}
+
+
 select {
 	width: 26.3vw;
 	-webkit-appearance: none;
@@ -186,6 +210,8 @@ select {
 form > br {
 	line-height: 3vw;
 }
+
+
 
 dl {
   width: 35vw;
@@ -215,22 +241,57 @@ dd {
 /* ===== TABLES ===== */
 
 table {
-	/* border: 1px solid grey; */
 	border-collapse: collapse;
+	margin: auto;
+}
+
+table img {
+	width: 100px;
 }
 
 tr:nth-child(odd) {
 	background: #DDD;
 }
 
-td {
+td, th {
 	/* border: 1px solid grey; */
 	padding: 0.5vw;
 	font-size: 1.5vw;
-	width: 25vw;
+	text-align: left;
 }
 
-td:last-child {
-	width: 10vw;
+td:last-child, th:last-child {
 	text-align: right;
+}
+
+/* ===== ADD BUTTON ===== */
+
+button#add {
+	display: block;
+	position: fixed;
+	bottom: 1em;
+	right: 1em;
+	z-index: 5;
+	background-color: grey;
+	color: white;
+	font-size: 5em;
+	width: 1.2em;
+	block-size: border-box;
+	border-radius: 2em;
+	border: none;
+	cursor: pointer;
+}
+
+.add {
+	display: block;
+	position: fixed;
+	bottom: 1em;
+	right: 1em;
+	z-index: 5;
+	padding: 1em;
+}
+
+button#add:hover {
+	background-color: white;
+	color: grey;
 }
