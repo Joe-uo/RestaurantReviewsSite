@@ -1,9 +1,7 @@
 
 import Router from 'koa-router'
-import bodyParser from 'koa-body'
 
 const router = new Router()
-router.use(bodyParser({multipart: true}))
 
 import Accounts from '../modules/accounts.js'
 const dbName = 'website.db'
