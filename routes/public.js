@@ -4,6 +4,7 @@ import Router from 'koa-router'
 const router = new Router()
 
 import Accounts from '../modules/accounts.js'
+import Restaurants from '../modules/restaurants.js'
 const dbName = 'website.db'
 
 /**
@@ -13,12 +14,17 @@ const dbName = 'website.db'
  * @route {GET} /
  */
 router.get('/', async ctx => {
+	const restaurants = await new Restaurants(dbName)
 	try {
+		const records = await restaurants.all()
+		console.log(records)
+		ctx.hbs.records = records
 		await ctx.render('index', ctx.hbs)
 	} catch(err) {
 		await ctx.render('error', ctx.hbs)
 	}
 })
+
 
 
 /**
