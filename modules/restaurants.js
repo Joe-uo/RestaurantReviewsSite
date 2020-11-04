@@ -40,7 +40,7 @@ class Restaurants {
 		const restaurants = await this.db.all(sql)
 		for(const index in restaurants){
 			const badAddress = new String(restaurants[index].address)
-			const formatAddress = badAddress.split(",").join("<br />")
+			const formatAddress = badAddress.split(",").join("\r\n")
 			restaurants[index].address = formatAddress
 		}
 		return restaurants
